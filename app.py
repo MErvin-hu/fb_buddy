@@ -2,7 +2,6 @@
 from io import StringIO
 from datetime import datetime    
 import re
-#import sqlite3
 import datetime as dt
 from pathlib import Path
 import streamlit as st
@@ -14,26 +13,6 @@ from numpy import random
 
 def main():
 
-    st.markdown(
-            f"""
-    <style>
-        .reportview-container .main .block-container{{
-            max-width: {'1900'}px;
-            padding-top: {10}rem;
-            padding-right: {2}rem;
-            padding-left: {2}rem;
-            padding-bottom: {10}rem;
-        }}
-        
-    </style>
-    """,
-            unsafe_allow_html=True,
-        )
-     
-    st.markdown(html_temp.format('#94A6A1','#18261B'),unsafe_allow_html=True)
-
-    st.markdown('<br>',unsafe_allow_html=True);
-  
     uploaded_file = st.sidebar.file_uploader("Az FB profile html beolvasása")
     if uploaded_file is not None:
         stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
@@ -50,10 +29,7 @@ def main():
         now = datetime.now()
         df['date']=now.strftime('%Y.%m.%d')
         df.columns =['name', 'rn','date']
-        #df.to_sql('fb_buddy', conn, if_exists='append', index=False)
-
-        st.table(df)
-        
+        st.table(df)      
 
 
 if __name__ == '__main__':
