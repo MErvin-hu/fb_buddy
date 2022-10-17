@@ -1,2 +1,7 @@
 streamlit==0.70.0
 pandas
+plotly.express
+plotly
+requests
+numpy
+pydeck
